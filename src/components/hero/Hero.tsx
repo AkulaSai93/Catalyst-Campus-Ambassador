@@ -30,7 +30,7 @@ export default function Hero() {
             data-anim="hero"
             className="mb-4 text-[34px] leading-[1.08] font-semibold tracking-[-0.04em] text-balance text-ink sm:text-5xl lg:text-[clamp(36px,3.4vw,52px)] lg:whitespace-nowrap"
           >
-            Bring the tech industry&apos;s <span className="whitespace-nowrap">know-how</span> to your campus.
+            Bring the tech industry&apos;s <span className="whitespace-nowrap">know how</span> to your campus.
           </h1>
 
           <p
