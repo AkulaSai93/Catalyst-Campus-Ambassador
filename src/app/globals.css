@@ -1,26 +1,60 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --color-ink: #0a0a10;
+  --color-brand: #e8343a; /* upGrad red – swap for the exact brand token */
+  --color-brand-hover: #d0262c;
+  --color-violet: #7c5cff;
+  --color-field: #f6f6f9;
+  --color-field-line: #e3e3ea;
+  --color-text: #15151d;
+  --color-muted: #6b6b7b;
+  --color-muted-dark: #b4b3c3;
+  --color-ok: #12a46b;
+  --color-err: #d92d35;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --font-sans: var(--font-inter), system-ui, sans-serif;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --animate-reveal: reveal 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-rise: rise 0.25s ease both;
+  --animate-fill: fill 0.35s ease forwards;
+  --animate-shake: shake 0.3s;
+  --animate-ken: ken 24s ease-out both;
+  --animate-pop: pop 0.28s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+
+  @keyframes pop {
+    from { opacity: 0; transform: translateY(12px) scale(0.98); }
+    to { opacity: 1; transform: none; }
+  }
+
+  @keyframes reveal {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes fill {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+  @keyframes shake {
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
+  }
+  @keyframes ken {
+    from { transform: scale(1.08); }
+    to { transform: scale(1); }
   }
 }
 
+/* Light mode only */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #fff;
+  color: var(--color-text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
 }
