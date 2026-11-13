@@ -15,11 +15,12 @@ export default function WhoCanApply() {
           <h2 className="text-[26px] leading-[1.15] font-semibold tracking-[-0.035em] text-ink sm:text-[38px]">Who can apply</h2>
         </div>
 
-        <ul data-anim="stagger" className="grid border-t border-black/[0.08] sm:grid-cols-2">
+        {/* Grid lines on larger screens only; on phones the points sit as a plain list */}
+        <ul data-anim="stagger" className="grid gap-5 border-black/[0.08] sm:grid-cols-2 sm:gap-0 sm:border-t">
           {CRITERIA.map((c, i) => (
             <li
               key={c}
-              className={`flex gap-4 border-b border-black/[0.08] py-6 sm:py-8 ${
+              className={`flex gap-4 border-black/[0.08] sm:border-b sm:py-8 ${
                 i % 2 === 0 ? "sm:border-r sm:pr-10" : "sm:pl-10"
               }`}
             >
