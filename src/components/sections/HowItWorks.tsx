@@ -72,9 +72,9 @@ export default function HowItWorks() {
   }, []);
 
   return (
-    <section id="how-it-works" className="bg-white pb-20 sm:pb-28">
+    <section id="how-it-works" className="bg-white pb-14 sm:pb-16">
       <div className="mx-auto max-w-[1000px] px-4 sm:px-8">
-        <div className="mb-12 text-center sm:mb-16">
+        <div data-anim="stagger" className="mb-8 text-center sm:mb-10">
           <p className="mb-3 text-[13px] font-medium text-brand">How it works</p>
           <h2 className="text-[30px] leading-[1.1] font-semibold tracking-[-0.035em] text-ink sm:text-[38px]">
             From sign-up to rewards
@@ -98,7 +98,7 @@ export default function HowItWorks() {
             const photoLeft = i % 2 === 0;
             const active = i < reached;
             return (
-              <li key={s.title} className="relative grid items-center gap-6 pb-14 pl-8 last:pb-0 lg:grid-cols-2 lg:gap-24 lg:pb-20 lg:pl-0">
+              <li key={s.title} className="relative grid items-center gap-6 pb-12 pl-8 last:pb-0 lg:grid-cols-2 lg:gap-24 lg:pb-14 lg:pl-0">
                 {/* marker */}
                 <span
                   ref={(el) => {
@@ -111,7 +111,10 @@ export default function HowItWorks() {
                 />
 
                 {/* polaroid */}
-                <div className={`flex ${photoLeft ? "lg:justify-end" : "lg:order-2 lg:justify-start"}`}>
+                <div
+                  data-anim={photoLeft ? "polaroid-l" : "polaroid-r"}
+                  className={`flex ${photoLeft ? "lg:justify-end" : "lg:order-2 lg:justify-start"}`}
+                >
                   <figure
                     className={`w-full max-w-[300px] bg-white p-3 pb-10 shadow-[0_14px_30px_-16px_rgba(30,20,10,.35)] ring-1 ring-black/[0.06] ${
                       photoLeft ? "-rotate-2" : "rotate-2"
@@ -124,7 +127,7 @@ export default function HowItWorks() {
                 </div>
 
                 {/* text */}
-                <div className={photoLeft ? "lg:text-left" : "lg:order-1 lg:text-right"}>
+                <div data-anim="up" className={photoLeft ? "lg:text-left" : "lg:order-1 lg:text-right"}>
                   <span
                     className={`block text-[56px] leading-none font-light tracking-[-0.04em] tabular-nums transition-colors duration-300 sm:text-[68px] ${
                       active ? "text-ink" : "text-black/25"

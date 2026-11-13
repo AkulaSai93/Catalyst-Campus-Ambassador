@@ -41,16 +41,16 @@ const BEYOND = [
 
 export default function WhatYouGet() {
   return (
-    <section id="what-you-get" className="bg-white pb-20 sm:pb-24">
+    <section id="what-you-get" className="bg-white pb-14 sm:pb-16">
       <div className="mx-auto max-w-[1180px] px-4 sm:px-8">
-        <div className="mb-10 text-center sm:mb-12">
+        <div data-anim="stagger" className="mb-8 text-center sm:mb-10">
           <p className="mb-3 text-[13px] font-medium text-brand">What you get</p>
           <h2 className="text-[30px] leading-[1.1] font-semibold tracking-[-0.035em] text-balance text-ink sm:text-[38px] lg:whitespace-nowrap">
             Lead your campus. Get rewarded.
           </h2>
         </div>
 
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <ul data-anim="stagger" className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {REWARDS.map((r) => (
             <li
               key={r.title}
@@ -82,7 +82,7 @@ export default function WhatYouGet() {
           <h3 className="mb-8 text-[22px] leading-tight font-semibold tracking-[-0.025em] text-ink sm:text-[26px]">
             Beyond the rewards
           </h3>
-          <ul className="mx-auto grid max-w-[1080px] text-left sm:grid-cols-3 sm:divide-x sm:divide-black/[0.08]">
+          <ul data-anim="stagger" className="mx-auto grid max-w-[1080px] text-left sm:grid-cols-3 sm:divide-x sm:divide-black/[0.08]">
             {BEYOND.map((b) => (
               <li key={b.text} className="flex gap-3 py-3 text-[14.5px] leading-[1.55] text-[#4a4a57] sm:px-7">
                 <span className={`mt-1 size-3.5 flex-none rounded-[3px] ${b.color}`} />

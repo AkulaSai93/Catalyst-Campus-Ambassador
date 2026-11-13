@@ -15,11 +15,10 @@
 
   --font-sans: var(--font-inter), system-ui, sans-serif;
 
-  --animate-reveal: reveal 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  /* Page-level motion lives in components/Animations.tsx (GSAP); these are small UI animations */
   --animate-rise: rise 0.25s ease both;
   --animate-fill: fill 0.35s ease forwards;
   --animate-shake: shake 0.3s;
-  --animate-ken: ken 24s ease-out both;
   --animate-pop: pop 0.28s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 
   @keyframes pop {
@@ -27,10 +26,6 @@
     to { opacity: 1; transform: none; }
   }
 
-  @keyframes reveal {
-    from { opacity: 0; transform: translateY(14px); }
-    to { opacity: 1; transform: none; }
-  }
   @keyframes rise {
     from { opacity: 0; transform: translateY(-4px); }
     to { opacity: 1; transform: none; }
@@ -42,10 +37,6 @@
   @keyframes shake {
     25% { transform: translateX(-4px); }
     75% { transform: translateX(4px); }
-  }
-  @keyframes ken {
-    from { transform: scale(1.08); }
-    to { transform: scale(1); }
   }
 }
 
