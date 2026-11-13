@@ -42,10 +42,10 @@ const BEYOND = [
 export default function WhatYouGet() {
   return (
     <section id="what-you-get" className="bg-white pb-10 sm:pb-16">
-      <div className="mx-auto max-w-[1180px] px-6 sm:px-8">
+      <div className="mx-auto max-w-[1180px] px-5 sm:px-8">
         <div data-anim="stagger" className="mb-6 text-center sm:mb-10">
           <p className="mb-3 text-[13px] font-medium text-brand">What you get</p>
-          <h2 className="text-[30px] leading-[1.1] font-semibold tracking-[-0.035em] text-balance text-ink sm:text-[38px] lg:whitespace-nowrap">
+          <h2 className="text-[26px] leading-[1.15] font-semibold tracking-[-0.035em] text-balance text-ink sm:text-[38px] lg:whitespace-nowrap">
             Lead your campus. Get rewarded.
           </h2>
         </div>

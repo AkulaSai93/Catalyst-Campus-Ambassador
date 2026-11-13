@@ -59,11 +59,12 @@ export default function Animations() {
         }),
       );
 
-      // Polaroids swing in from their side
+      // Polaroids swing in from their side (a shorter slide on phones)
+      const slide = window.matchMedia("(min-width: 1024px)").matches ? 70 : 24;
       (["l", "r"] as const).forEach((side) =>
         q(`[data-anim='polaroid-${side}']`).forEach((el) =>
           gsap.from(el, {
-            x: side === "l" ? -70 : 70,
+            x: side === "l" ? -slide : slide,
             rotate: side === "l" ? -10 : 10,
             autoAlpha: 0,
             duration: 1.1,

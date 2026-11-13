@@ -40,10 +40,10 @@ export default function Faqs() {
 
   return (
     <section id="faqs" className="bg-white pb-10 sm:pb-16">
-      <div className="mx-auto max-w-[860px] px-6 sm:px-8">
+      <div className="mx-auto max-w-[860px] px-5 sm:px-8">
         <div data-anim="stagger" className="mb-6 text-center sm:mb-10">
           <p className="mb-3 text-[13px] font-medium text-brand">FAQs</p>
-          <h2 className="text-[30px] leading-[1.1] font-semibold tracking-[-0.035em] text-ink sm:text-[38px]">
+          <h2 className="text-[26px] leading-[1.15] font-semibold tracking-[-0.035em] text-ink sm:text-[38px]">
             Questions, answered
           </h2>
         </div>

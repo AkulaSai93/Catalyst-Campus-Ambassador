@@ -19,7 +19,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="mx-auto flex w-full max-w-[1280px] flex-1 flex-col px-6 sm:px-8">
+      <div className="mx-auto flex w-full max-w-[1280px] flex-1 flex-col px-5 sm:px-8">
         <div className="flex flex-col items-center pt-16 text-center sm:pt-24 lg:pt-28">
           {/* Logo centred above the headline */}
           <header data-anim="hero" className="mb-8 sm:mb-10">
@@ -30,7 +30,7 @@ export default function Hero() {
             data-anim="hero"
             className="mb-4 text-[34px] leading-[1.08] font-semibold tracking-[-0.04em] text-balance text-ink sm:text-5xl lg:text-[clamp(36px,3.4vw,52px)] lg:whitespace-nowrap"
           >
-            Bring the tech industry&apos;s know-how to your campus.
+            Bring the tech industry&apos;s <span className="whitespace-nowrap">know-how</span> to your campus.
           </h1>
 
           <p

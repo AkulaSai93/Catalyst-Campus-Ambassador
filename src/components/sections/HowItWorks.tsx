@@ -73,10 +73,10 @@ export default function HowItWorks() {
 
   return (
     <section id="how-it-works" className="bg-white pb-10 sm:pb-16">
-      <div className="mx-auto max-w-[1000px] px-6 sm:px-8">
+      <div className="mx-auto max-w-[1000px] px-5 sm:px-8">
         <div data-anim="stagger" className="mb-6 text-center sm:mb-10">
           <p className="mb-3 text-[13px] font-medium text-brand">How it works</p>
-          <h2 className="text-[30px] leading-[1.1] font-semibold tracking-[-0.035em] text-ink sm:text-[38px]">
+          <h2 className="text-[26px] leading-[1.15] font-semibold tracking-[-0.035em] text-ink sm:text-[38px]">
             From sign-up to rewards
           </h2>
         </div>

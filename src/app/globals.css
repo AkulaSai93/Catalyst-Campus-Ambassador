@@ -40,6 +40,13 @@
   }
 }
 
+/* Nothing may widen the page sideways (e.g. elements waiting off-screen to animate in).
+   `clip` rather than `hidden` so it doesn't create a scroll container. */
+html,
+body {
+  overflow-x: clip;
+}
+
 /* Light mode only */
 body {
   background: #fff;
