@@ -19,7 +19,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="mx-auto flex w-full max-w-[1280px] flex-1 flex-col px-4 sm:px-8">
+      <div className="mx-auto flex w-full max-w-[1280px] flex-1 flex-col px-6 sm:px-8">
         <div className="flex flex-col items-center pt-16 text-center sm:pt-24 lg:pt-28">
           {/* Logo centred above the headline */}
           <header data-anim="hero" className="mb-8 sm:mb-10">

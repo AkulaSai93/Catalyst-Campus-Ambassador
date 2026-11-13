@@ -11,7 +11,7 @@ const LINKS = [
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-white">
-      <div className="relative z-10 mx-auto flex max-w-[1280px] flex-col items-center gap-6 px-4 pt-12 sm:flex-row sm:justify-between sm:px-8">
+      <div className="relative z-10 mx-auto flex max-w-[1280px] flex-col items-center gap-6 px-6 pt-12 sm:flex-row sm:justify-between sm:px-8">
         <Logos />
         <nav aria-label="Footer">
           <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[14.5px] text-[#4a4a57] sm:gap-x-2">

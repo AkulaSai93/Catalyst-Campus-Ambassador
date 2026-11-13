@@ -6,7 +6,7 @@ export default function FinalCta() {
     <section
       id="final-cta"
       data-anim="stagger"
-      className="bg-[linear-gradient(180deg,#e4eef8_0%,#f3efe9_55%,#fbe3c6_100%)] px-4 py-14 text-center sm:px-8 sm:py-16"
+      className="bg-[linear-gradient(180deg,#e4eef8_0%,#f3efe9_55%,#fbe3c6_100%)] px-6 py-12 text-center sm:px-8 sm:py-16"
     >
       <h2 className="mx-auto mb-4 max-w-[760px] text-[30px] leading-[1.1] font-semibold tracking-[-0.035em] text-balance text-ink sm:max-w-none sm:text-[clamp(22px,3.6vw,40px)] sm:whitespace-nowrap">
         Your campus can start early. You can lead it.

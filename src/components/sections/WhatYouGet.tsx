@@ -41,9 +41,9 @@ const BEYOND = [
 
 export default function WhatYouGet() {
   return (
-    <section id="what-you-get" className="bg-white pb-14 sm:pb-16">
-      <div className="mx-auto max-w-[1180px] px-4 sm:px-8">
-        <div data-anim="stagger" className="mb-8 text-center sm:mb-10">
+    <section id="what-you-get" className="bg-white pb-10 sm:pb-16">
+      <div className="mx-auto max-w-[1180px] px-6 sm:px-8">
+        <div data-anim="stagger" className="mb-6 text-center sm:mb-10">
           <p className="mb-3 text-[13px] font-medium text-brand">What you get</p>
           <h2 className="text-[30px] leading-[1.1] font-semibold tracking-[-0.035em] text-balance text-ink sm:text-[38px] lg:whitespace-nowrap">
             Lead your campus. Get rewarded.
@@ -54,7 +54,7 @@ export default function WhatYouGet() {
           {REWARDS.map((r) => (
             <li
               key={r.title}
-              className={`relative flex h-[340px] flex-col overflow-hidden rounded-sm ${r.bg} ring-4 ring-white outline outline-black/[0.06]`}
+              className={`relative flex flex-col sm:h-[340px] overflow-hidden rounded-sm ${r.bg} ring-4 ring-white outline outline-black/[0.06]`}
             >
               <div className="p-6 pb-0 text-center">
                 <h3 className="mb-2 text-[18px] leading-snug font-semibold tracking-[-0.02em] text-balance text-ink">
@@ -63,7 +63,7 @@ export default function WhatYouGet() {
                 <p className="text-[13.5px] leading-[1.55] text-[#4a4a57]">{r.body}</p>
               </div>
               {/* App-window preview peeking from the bottom-right */}
-              <div className="mt-auto ml-8 translate-x-2 translate-y-2">
+              <div className="mt-6 ml-8 translate-x-2 translate-y-2 sm:mt-auto">
                 <div className="overflow-hidden rounded-tl-sm border border-black/[0.06] bg-white/70 backdrop-blur-sm">
                   <div className="flex gap-1 px-3 py-2">
                     {[0, 1, 2].map((d) => (

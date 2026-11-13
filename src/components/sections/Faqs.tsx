@@ -39,9 +39,9 @@ export default function Faqs() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faqs" className="bg-white pb-14 sm:pb-16">
-      <div className="mx-auto max-w-[860px] px-4 sm:px-8">
-        <div data-anim="stagger" className="mb-8 text-center sm:mb-10">
+    <section id="faqs" className="bg-white pb-10 sm:pb-16">
+      <div className="mx-auto max-w-[860px] px-6 sm:px-8">
+        <div data-anim="stagger" className="mb-6 text-center sm:mb-10">
           <p className="mb-3 text-[13px] font-medium text-brand">FAQs</p>
           <h2 className="text-[30px] leading-[1.1] font-semibold tracking-[-0.035em] text-ink sm:text-[38px]">
             Questions, answered

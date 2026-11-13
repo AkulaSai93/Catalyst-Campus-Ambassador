@@ -8,9 +8,9 @@ const CRITERIA = [
 
 export default function WhoCanApply() {
   return (
-    <section id="who-can-apply" className="bg-white pb-14 sm:pb-16">
-      <div className="mx-auto max-w-[1000px] px-4 sm:px-8">
-        <div data-anim="stagger" className="mb-8 text-center sm:mb-10">
+    <section id="who-can-apply" className="bg-white pb-10 sm:pb-16">
+      <div className="mx-auto max-w-[1000px] px-6 sm:px-8">
+        <div data-anim="stagger" className="mb-6 text-center sm:mb-10">
           <p className="mb-3 text-[13px] font-medium text-brand">Eligibility</p>
           <h2 className="text-[30px] leading-[1.1] font-semibold tracking-[-0.035em] text-ink sm:text-[38px]">Who can apply</h2>
         </div>

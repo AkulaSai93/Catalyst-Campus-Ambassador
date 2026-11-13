@@ -2,8 +2,8 @@ const YEARS = ["Year 1", "Year 2", "Year 3", "Year 4"];
 
 export default function WhatYoureBringing() {
   return (
-    <section id="what-youre-bringing" className="bg-white pb-14 sm:pb-16">
-      <div className="mx-auto max-w-[1180px] px-4 sm:px-8">
+    <section id="what-youre-bringing" className="bg-white pb-10 sm:pb-16">
+      <div className="mx-auto max-w-[1180px] px-6 sm:px-8">
         <div data-anim="stagger" className="mx-auto max-w-[920px] text-center">
           <p className="mb-3 text-[13px] font-medium text-brand">About Catalyst</p>
           <h2 className="mb-6 text-[30px] leading-[1.1] font-semibold tracking-[-0.035em] text-balance text-ink sm:text-[38px]">

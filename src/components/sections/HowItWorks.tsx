@@ -72,9 +72,9 @@ export default function HowItWorks() {
   }, []);
 
   return (
-    <section id="how-it-works" className="bg-white pb-14 sm:pb-16">
-      <div className="mx-auto max-w-[1000px] px-4 sm:px-8">
-        <div data-anim="stagger" className="mb-8 text-center sm:mb-10">
+    <section id="how-it-works" className="bg-white pb-10 sm:pb-16">
+      <div className="mx-auto max-w-[1000px] px-6 sm:px-8">
+        <div data-anim="stagger" className="mb-6 text-center sm:mb-10">
           <p className="mb-3 text-[13px] font-medium text-brand">How it works</p>
           <h2 className="text-[30px] leading-[1.1] font-semibold tracking-[-0.035em] text-ink sm:text-[38px]">
             From sign-up to rewards
@@ -98,7 +98,7 @@ export default function HowItWorks() {
             const photoLeft = i % 2 === 0;
             const active = i < reached;
             return (
-              <li key={s.title} className="relative grid items-center gap-6 pb-12 pl-8 last:pb-0 lg:grid-cols-2 lg:gap-24 lg:pb-14 lg:pl-0">
+              <li key={s.title} className="relative grid items-center gap-5 pb-10 pl-8 last:pb-0 lg:grid-cols-2 lg:gap-24 lg:pb-14 lg:pl-0">
                 {/* marker */}
                 <span
                   ref={(el) => {

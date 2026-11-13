@@ -14,9 +14,9 @@ function Num({ n }: { n: string }) {
 
 export default function WhatYouDo() {
   return (
-    <section id="what-youll-do" className="bg-white py-14 sm:py-16">
-      <div className="mx-auto max-w-[1180px] px-4 sm:px-8">
-        <div data-anim="stagger" className="mb-8 text-center sm:mb-10">
+    <section id="what-youll-do" className="bg-white py-10 sm:py-16">
+      <div className="mx-auto max-w-[1180px] px-6 sm:px-8">
+        <div data-anim="stagger" className="mb-6 text-center sm:mb-10">
           <p className="mb-3 text-[13px] font-medium text-brand">What you&apos;ll do</p>
           <h2 className="text-[30px] leading-[1.1] font-semibold tracking-[-0.035em] text-balance text-ink sm:text-[38px] lg:whitespace-nowrap">
             Three ways to bring tech learning to your campus
