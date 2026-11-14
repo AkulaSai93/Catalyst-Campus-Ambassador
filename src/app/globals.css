@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* `inline` so the utilities reference next/font's variables directly. next/font defines them on
+   <body>, so resolving them on :root (plain @theme) would leave the fonts unset. */
+@theme inline {
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-script: var(--font-saint), cursive;
+}
+
 @theme {
   --color-ink: #0a0a10;
   --color-brand: #e8343a; /* upGrad red – swap for the exact brand token */
@@ -13,7 +20,6 @@
   --color-ok: #12a46b;
   --color-err: #d92d35;
 
-  --font-sans: var(--font-inter), system-ui, sans-serif;
 
   /* Page-level motion lives in components/Animations.tsx (GSAP); these are small UI animations */
   --animate-rise: rise 0.25s ease both;

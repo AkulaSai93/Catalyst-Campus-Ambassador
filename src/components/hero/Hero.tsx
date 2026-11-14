@@ -9,7 +9,7 @@ export default function Hero() {
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div data-anim="hero-bg" className="absolute inset-0">
           <Image
-            src="/hero-students.jpg"
+            src="/hero-campus-vishwa.jpg"
             alt=""
             fill
             priority
