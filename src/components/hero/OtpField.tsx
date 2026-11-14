@@ -112,7 +112,7 @@ export default function OtpField({
     <Field label={label} htmlFor={channel} error={showError ? errorText : undefined}>
       <div className={controlClass(stage === "verified" ? "verified" : showError ? "invalid" : "idle")}>
         {channel === "phone" && (
-          <span className="flex items-center gap-2 pl-3.5 text-[15px] font-semibold text-muted after:h-[18px] after:w-px after:bg-field-line">
+          <span className="flex items-center gap-2 pl-3 text-[14.5px] text-muted after:h-4 after:w-px after:bg-black/10">
             +91
           </span>
         )}
@@ -137,7 +137,7 @@ export default function OtpField({
           className={inputClass}
         />
         {stage === "verified" ? (
-          <span className="mr-3 flex items-center gap-1 text-[13px] font-bold text-ok">
+          <span className="mr-3 flex items-center gap-1 text-[12px] font-medium text-ok">
             <Check /> Verified
           </span>
         ) : (
@@ -145,7 +145,7 @@ export default function OtpField({
             type="button"
             disabled={!isValid || stage !== "idle"}
             onClick={send}
-            className="mr-1.5 rounded-lg bg-text px-3 py-2 text-[13px] font-bold whitespace-nowrap text-white transition disabled:cursor-not-allowed disabled:bg-[#d6d6de] disabled:text-[#8b8b98]"
+            className="mr-1.5 rounded-[5px] bg-ink px-2.5 py-1.5 text-[12px] font-medium whitespace-nowrap text-white transition hover:bg-black disabled:cursor-not-allowed disabled:bg-black/[0.06] disabled:text-black/35"
           >
             {stage === "sending" ? "Sending…" : stage === "otp" ? "Sent" : "Send OTP"}
           </button>
@@ -153,12 +153,12 @@ export default function OtpField({
       </div>
 
       {stage === "otp" && (
-        <div className="mt-2.5 animate-rise rounded-xl border border-dashed border-field-line bg-[#fafafc] p-3.5">
+        <div className="mt-2 animate-rise rounded-md border border-black/[0.07] bg-[#fafafa] p-3">
           <div className="mb-2.5 flex items-baseline justify-between gap-3 text-[12.5px] text-muted">
             <span>
               Enter the 6-digit code sent to <b className="break-all text-text">{shown}</b>
             </span>
-            <button type="button" onClick={edit} className="text-[12.5px] font-bold text-brand">
+            <button type="button" onClick={edit} className="text-[12px] font-medium text-brand">
               Edit
             </button>
           </div>
@@ -179,7 +179,7 @@ export default function OtpField({
                   if (e.key === "Backspace" && !d && i) cells.current[i - 1]?.focus();
                 }}
                 onPaste={paste}
-                className="aspect-[1/1.1] w-full max-w-[46px] min-w-0 rounded-[10px] border-[1.5px] border-field-line bg-white text-center text-lg font-bold text-text outline-none focus:border-text focus:shadow-[0_0_0_3px_rgba(21,21,29,.06)] disabled:opacity-60"
+                className="aspect-[1/1.1] w-full max-w-[46px] min-w-0 rounded-md border border-black/[0.12] bg-white text-center text-[17px] font-semibold text-ink outline-none focus:border-ink focus:shadow-[0_0_0_3px_rgba(21,21,29,.06)] disabled:opacity-60"
               />
             ))}
           </div>
@@ -189,7 +189,7 @@ export default function OtpField({
               type="button"
               disabled={left > 0}
               onClick={send}
-              className="font-bold text-brand disabled:font-medium disabled:text-muted"
+              className="font-medium text-brand disabled:text-muted"
             >
               {left > 0 ? `Resend in ${left}s` : "Resend code"}
             </button>

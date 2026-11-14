@@ -44,14 +44,14 @@ export default function SignupDialog() {
       }}
       className="m-auto w-[calc(100%-32px)] max-w-[480px] overflow-visible bg-transparent p-0 text-left backdrop:bg-ink/40 backdrop:backdrop-blur-sm open:animate-pop max-sm:mt-auto max-sm:mb-4"
     >
-      <div className="max-h-[calc(100svh-32px)] overflow-y-auto rounded-[22px]">
+      <div className="max-h-[calc(100svh-32px)] overflow-y-auto rounded-lg">
         <SignupForm />
       </div>
       <button
         type="button"
         onClick={() => dialog.current?.close()}
         aria-label="Close"
-        className="absolute top-5 right-5 grid size-9 place-items-center rounded-full text-muted transition hover:bg-field hover:text-text sm:top-7 sm:right-7"
+        className="absolute top-4 right-4 grid size-8 place-items-center rounded-md text-muted transition hover:bg-black/[0.05] hover:text-ink sm:top-5 sm:right-5"
       >
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden>
           <path d="M18 6 6 18M6 6l12 12" />

@@ -5,15 +5,15 @@ export type ControlState = "idle" | "invalid" | "verified";
 export function controlClass(state: ControlState = "idle", extra = "") {
   const tone =
     state === "invalid"
-      ? "border-err"
+      ? "border-err focus-within:ring-err/10"
       : state === "verified"
-        ? "border-ok bg-[#f3fbf7]"
-        : "border-field-line bg-field focus-within:border-text focus-within:bg-white";
-  return `relative flex items-center rounded-xl border-[1.5px] transition focus-within:shadow-[0_0_0_4px_rgba(21,21,29,.06)] ${tone} ${extra}`;
+        ? "border-ok/60"
+        : "border-black/[0.12] hover:border-black/25 focus-within:border-ink";
+  return `relative flex items-center rounded-md border bg-white transition focus-within:ring-[3px] focus-within:ring-black/[0.06] ${tone} ${extra}`;
 }
 
 export const inputClass =
-  "min-w-0 flex-1 bg-transparent px-3.5 py-3 text-[15px] text-text outline-none placeholder:text-[#a2a2b0] read-only:text-muted";
+  "min-w-0 flex-1 bg-transparent px-3 py-2.5 text-[14.5px] text-ink outline-none placeholder:text-[#a6a6b2] read-only:text-muted";
 
 export function Field({
   label,
@@ -31,20 +31,20 @@ export function Field({
   id?: string;
 }) {
   return (
-    <div className="mb-3.5">
-      <label htmlFor={htmlFor} id={id} className="mb-1.5 block text-[13px] font-semibold text-[#2a2a35]">
+    <div className="mb-4">
+      <label htmlFor={htmlFor} id={id} className="mb-1.5 block text-[12.5px] font-medium text-[#3a3a46]">
         {label}
       </label>
       {children}
       {error ? (
-        <p className="mt-1.5 text-[12.5px] text-err">{error}</p>
+        <p className="mt-1.5 text-[12px] text-err">{error}</p>
       ) : hint ? (
-        <p className="mt-1.5 text-[12.5px] text-muted">{hint}</p>
+        <p className="mt-1.5 text-[12px] text-muted">{hint}</p>
       ) : null}
     </div>
   );
 }
 
 export function Spinner() {
-  return <span className="mr-3 size-4 animate-spin rounded-full border-2 border-[#d4d4dc] border-t-text" />;
+  return <span className="mr-3 size-4 animate-spin rounded-full border-2 border-black/10 border-t-ink" />;
 }

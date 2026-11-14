@@ -95,7 +95,7 @@ export default function CollegeCombobox({ onChange }: { onChange: (c: College | 
               id="collegeList"
               role="listbox"
               aria-labelledby="collegeLabel"
-              className="absolute top-[calc(100%+6px)] right-[-1.5px] left-[-1.5px] z-20 max-h-60 animate-rise overflow-auto rounded-xl border border-field-line bg-white p-1.5 shadow-[0_20px_40px_-12px_rgba(10,10,16,.25)]"
+              className="absolute top-[calc(100%+6px)] right-[-1px] left-[-1px] z-20 max-h-60 animate-rise overflow-auto rounded-md border border-black/[0.08] bg-white p-1 shadow-[0_20px_40px_-12px_rgba(10,10,16,.25)]"
             >
               {matches.map((c, i) => (
                 <li
@@ -107,7 +107,7 @@ export default function CollegeCombobox({ onChange }: { onChange: (c: College | 
                     e.preventDefault();
                     choose(i);
                   }}
-                  className="cursor-pointer rounded-lg px-3 py-2.5 text-sm leading-snug text-text hover:bg-field aria-selected:bg-field"
+                  className="cursor-pointer rounded-[5px] px-2.5 py-2 text-[13.5px] leading-snug text-ink hover:bg-black/[0.04] aria-selected:bg-black/[0.04]"
                 >
                   {c.name}
                   <small className="mt-0.5 block text-xs text-muted">{c.location}</small>
@@ -122,7 +122,7 @@ export default function CollegeCombobox({ onChange }: { onChange: (c: College | 
                   e.preventDefault();
                   choose(matches.length);
                 }}
-                className="mt-1 cursor-pointer rounded-b-lg border-t border-field-line px-3 pt-3 pb-2.5 text-sm font-semibold text-brand hover:bg-field aria-selected:bg-field"
+                className="mt-1 cursor-pointer rounded-[5px] border-t border-black/[0.06] px-2.5 pt-2.5 pb-2 text-[13.5px] font-medium text-brand hover:bg-black/[0.04] aria-selected:bg-black/[0.04]"
               >
                 + {NOT_LISTED}
               </li>

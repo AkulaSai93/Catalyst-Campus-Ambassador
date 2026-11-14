@@ -78,7 +78,7 @@ export default function PinField({ onChange }: { onChange: (loc: Location | null
           />
           {loading && <Spinner />}
           {resolved && (
-            <span className="mr-3 max-w-[55%] truncate text-[13px] font-semibold text-ok">
+            <span className="mr-3 max-w-[55%] truncate text-[12px] font-medium text-ok">
               {city}, {state}
             </span>
           )}

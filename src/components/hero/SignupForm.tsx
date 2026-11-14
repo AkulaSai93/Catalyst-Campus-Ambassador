@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { register } from "@/lib/api";
+import SignupSuccess from "./SignupSuccess";
 import OtpField from "./OtpField";
 import PinField, { type Location } from "./PinField";
 import CollegeCombobox, { type College } from "./CollegeCombobox";
@@ -46,57 +47,46 @@ export default function SignupForm() {
   }
 
   return (
-    <div className="relative rounded-[22px] bg-white p-6 text-text shadow-[0_30px_70px_-25px_rgba(10,10,16,.45)] ring-1 ring-black/5 sm:p-8">
+    <div
+      className={`relative rounded-lg bg-white text-ink shadow-[0_24px_60px_-24px_rgba(10,10,16,.4)] ring-1 ring-black/[0.06] ${
+        done ? "overflow-hidden" : "p-6 sm:p-7"
+      }`}
+    >
       {done ? (
-        <div className="animate-rise px-1.5 pt-6 pb-2 text-center">
-          <div className="mx-auto mb-4 grid size-16 place-items-center rounded-full bg-[#e7f7ef] text-ok">
-            <Check size={30} />
-          </div>
-          <h2 className="mb-2 text-xl font-semibold tracking-tight">You&apos;re in, {name.trim().split(" ")[0]}!</h2>
-          <p className="mx-auto max-w-[320px] text-[15px] leading-relaxed text-muted">
-            Welcome to the Catalyst Campus Ambassador Program. Your dashboard and personal session links are on their
-            way to your email.
-          </p>
-        </div>
+        <SignupSuccess firstName={name.trim().split(" ")[0]} />
       ) : (
         <form onSubmit={onSubmit} noValidate>
-          <h2 id="signup-title" className="mb-1 pr-8 text-xl font-semibold tracking-tight">
+          <h2 id="signup-title" className="mb-1 pr-10 text-lg font-semibold tracking-[-0.02em]">
             Become an Ambassador
           </h2>
-          <p className="mb-5 text-sm text-muted">Register in 2 minutes and get your ambassador dashboard.</p>
+          <p className="mb-5 text-[13px] text-muted">Register in 2 minutes and get your ambassador dashboard.</p>
 
-          <ol className="mb-6 flex items-center gap-3 text-[13px] font-semibold">
-            {(["Verify", "Your college"] as const).map((label, i) => {
-              const n = (i + 1) as 1 | 2;
-              const complete = n === 1 && step === 2;
-              const current = n === step;
-              return (
-                <li key={label} className="flex flex-1 items-center gap-2.5">
-                  <button
-                    type="button"
-                    disabled={n === 2 && !verifyDone}
-                    onClick={() => setStep(n)}
-                    aria-current={current ? "step" : undefined}
-                    className="flex items-center gap-2 disabled:cursor-default"
-                  >
-                    <span
-                      className={`grid size-6 flex-none place-items-center rounded-full text-xs font-bold transition ${
-                        complete ? "bg-ok text-white" : current ? "bg-text text-white" : "bg-[#ececf2] text-muted"
-                      }`}
+          {/* Two-segment progress: "Step n of 2 · label" with a bar per step */}
+          <div className="mb-6">
+            <div className="mb-2 flex items-baseline justify-between text-[12px]">
+              <span className="font-medium text-ink">{step === 1 ? "Verify your details" : "Your college"}</span>
+              <span className="text-muted tabular-nums">Step {step} of 2</span>
+            </div>
+            <ol className="grid grid-cols-2 gap-1.5" aria-label="Sign-up steps">
+              {(["Verify", "Your college"] as const).map((label, i) => {
+                const n = (i + 1) as 1 | 2;
+                return (
+                  <li key={label}>
+                    <button
+                      type="button"
+                      disabled={n === 2 && !verifyDone}
+                      onClick={() => setStep(n)}
+                      aria-current={n === step ? "step" : undefined}
+                      aria-label={`Step ${n}: ${label}`}
+                      className="block h-1 w-full overflow-hidden rounded-full bg-black/[0.08] disabled:cursor-default"
                     >
-                      {complete ? <Check size={12} /> : n}
-                    </span>
-                    <span className={current || complete ? "text-text" : "text-muted"}>{label}</span>
-                  </button>
-                  {n === 1 && (
-                    <span className="relative h-0.5 flex-1 overflow-hidden rounded bg-[#ececf2]">
-                      {step === 2 && <span className="absolute inset-0 origin-left animate-fill bg-ok" />}
-                    </span>
-                  )}
-                </li>
-              );
-            })}
-          </ol>
+                      {n <= step && <span className="block h-full origin-left animate-fill bg-brand" />}
+                    </button>
+                  </li>
+                );
+              })}
+            </ol>
+          </div>
 
           {/* Step 1 stays mounted while hidden so verified fields keep their state */}
           <div hidden={step !== 1}>
@@ -126,39 +116,40 @@ export default function SignupForm() {
             type="button"
             disabled={!verifyDone}
             onClick={next}
-            className="mt-2 flex w-full items-center justify-center gap-2.5 rounded-xl bg-text py-4 text-base font-bold text-white transition hover:bg-black disabled:cursor-not-allowed disabled:opacity-30"
+            className="mt-2 flex w-full items-center justify-center gap-2 rounded-md bg-ink py-3 text-[14.5px] font-medium text-white transition hover:bg-black disabled:cursor-not-allowed disabled:bg-black/[0.08] disabled:text-black/30"
           >
-            Continue <ArrowRight />
+            Continue <ArrowRight size={16} />
           </button>
-          <p className="mt-3 flex items-center justify-center gap-2 text-[12.5px] text-muted">
+          <p className="mt-3 flex items-center justify-center gap-2 text-[12px] text-muted">
             Free to join <i className="size-[3px] rounded-full bg-current" /> Takes 2 minutes
           </p>
           </div>
 
           <div hidden={step !== 2} className="animate-rise">
-          <p className="mb-4 flex items-center gap-2 rounded-xl bg-[#f3fbf7] px-3.5 py-2.5 text-[13px] text-[#2a2a35]">
-            <Check className="text-ok" />
+          <p className="mb-5 flex items-center gap-2 rounded-md border border-ok/20 bg-ok/[0.06] px-3 py-2 text-[12.5px] text-[#3a3a46]">
+            <Check size={13} className="flex-none text-ok" />
             <span className="min-w-0 truncate">
-              Verified <b>+91 {phone}</b> and <b>{email}</b>
+              Verified <span className="font-medium text-ink">+91 {phone}</span> and{" "}
+              <span className="font-medium text-ink">{email}</span>
             </span>
           </p>
           <PinField onChange={setLocation} />
           <CollegeCombobox onChange={setCollege} />
 
-          <label className="mt-1.5 mb-4.5 flex cursor-pointer items-start gap-2.5 text-[13px] leading-normal text-muted">
+          <label className="mt-1 mb-5 flex cursor-pointer items-start gap-2.5 text-[12.5px] leading-normal text-muted">
             <input
               type="checkbox"
               checked={terms}
               onChange={(e) => setTerms(e.target.checked)}
-              className="mt-px size-[18px] flex-none cursor-pointer accent-brand"
+              className="mt-px size-4 flex-none cursor-pointer accent-brand"
             />
             <span>
               I agree to the{" "}
-              <a href="#" target="_blank" rel="noopener" className="font-semibold text-text underline">
+              <a href="#" target="_blank" rel="noopener" className="font-medium text-brand underline underline-offset-2 hover:text-brand-hover">
                 Terms and Conditions
               </a>{" "}
               and{" "}
-              <a href="#" target="_blank" rel="noopener" className="font-semibold text-text underline">
+              <a href="#" target="_blank" rel="noopener" className="font-medium text-brand underline underline-offset-2 hover:text-brand-hover">
                 Privacy Policy
               </a>{" "}
               of the Campus Ambassador Program.
@@ -168,15 +159,15 @@ export default function SignupForm() {
           <button
             type="submit"
             disabled={!ready}
-            className="flex w-full items-center justify-center gap-2.5 rounded-xl bg-brand py-4 text-base font-bold text-white shadow-[0_10px_30px_-8px_rgba(232,52,58,.6)] transition hover:bg-brand-hover disabled:cursor-not-allowed disabled:opacity-45 disabled:shadow-none"
+            className="flex w-full items-center justify-center gap-2 rounded-md bg-brand py-3 text-[14.5px] font-medium text-white transition hover:bg-brand-hover disabled:cursor-not-allowed disabled:bg-black/[0.08] disabled:text-black/30"
           >
             {submitting ? "Creating your account…" : "Sign up as Ambassador"}
-            {!submitting && <ArrowRight />}
+            {!submitting && <ArrowRight size={16} />}
           </button>
           <button
             type="button"
             onClick={() => setStep(1)}
-            className="mx-auto mt-3 block text-[13px] font-semibold text-muted transition hover:text-text"
+            className="mx-auto mt-3 block text-[12.5px] font-medium text-muted transition hover:text-ink"
           >
             ← Back
           </button>
