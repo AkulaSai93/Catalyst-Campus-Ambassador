@@ -23,9 +23,11 @@ export default function Animations() {
     mm.add("(prefers-reduced-motion: no-preference)", () => {
       const q = <T extends Element = HTMLElement>(sel: string) => gsap.utils.toArray<T>(sel);
       const ease = "power3.out";
+      // Hand styling back to CSS once a reveal finishes, so hover effects (which use translate/scale) work
+      const done = { clearProps: "transform,translate,rotate,scale,opacity,visibility" };
 
       // Hero intro
-      gsap.from(q("[data-anim='hero']"), { y: 28, autoAlpha: 0, duration: 0.9, ease, stagger: 0.12, delay: 0.1 });
+      gsap.from(q("[data-anim='hero']"), { y: 28, autoAlpha: 0, duration: 0.9, ease, stagger: 0.12, delay: 0.1, ...done });
       const heroBg = q("[data-anim='hero-bg']")[0];
       if (heroBg) {
         gsap.fromTo(heroBg, { scale: 1.12 }, { scale: 1, duration: 2.4, ease: "power2.out" });
@@ -43,6 +45,7 @@ export default function Animations() {
           autoAlpha: 0,
           duration: 0.9,
           ease,
+          ...done,
           scrollTrigger: { trigger: el, start: "top 85%", once: true },
         }),
       );
@@ -55,6 +58,7 @@ export default function Animations() {
           duration: 0.85,
           ease,
           stagger: 0.12,
+          ...done,
           scrollTrigger: { trigger: group, start: "top 82%", once: true },
         }),
       );
@@ -69,6 +73,7 @@ export default function Animations() {
             autoAlpha: 0,
             duration: 1.1,
             ease,
+            ...done,
             scrollTrigger: { trigger: el, start: "top 85%", once: true },
           }),
         ),
@@ -81,6 +86,7 @@ export default function Animations() {
           duration: 1.2,
           ease: "power4.out",
           stagger: 0.06,
+          ...done,
           scrollTrigger: { trigger: word, start: "top 95%", once: true },
         }),
       );

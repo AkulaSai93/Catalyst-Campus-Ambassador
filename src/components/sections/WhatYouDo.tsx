@@ -12,6 +12,10 @@ function Num({ n }: { n: string }) {
   return <span className="text-[13px] font-medium text-brand tabular-nums">{n}</span>;
 }
 
+/* Hover animates only what's inside the card (photos zoom slowly); the card itself stays still */
+const cardHover = "group";
+const zoom = "transition-[scale] duration-[900ms] ease-out group-hover:scale-[1.06]";
+
 export default function WhatYouDo() {
   return (
     <section id="what-youll-do" className="bg-white py-10 sm:py-16">
@@ -25,15 +29,16 @@ export default function WhatYouDo() {
 
         <div data-anim="stagger" className="grid gap-4 lg:grid-cols-2 lg:grid-rows-2 lg:gap-5">
           {/* 01 — featured: Vishwa Mohan on campus */}
-          <article className="flex flex-col rounded-md border border-black/[0.08] bg-[#fafafa] p-3 lg:row-span-2">
+          <article className={`flex flex-col rounded-md border border-black/[0.08] bg-[#fafafa] p-3 lg:row-span-2 ${cardHover}`}>
             <div className="relative min-h-[260px] flex-1 overflow-hidden rounded-sm">
-              {/* Golden-hour campus amphitheatre (Figma AI), with Vishwa's cutout standing in front */}
+              {/* Golden-hour campus amphitheatre (Figma AI), with Vishwa's cutout standing in front.
+                  On hover the background zooms and Vishwa rises slightly, for a bit of depth. */}
               <Image
                 src="/what/vishwa-bg.jpg"
                 alt=""
                 fill
                 sizes="(min-width: 1024px) 560px, 100vw"
-                className="object-cover object-[50%_40%]"
+                className={`object-cover object-[50%_40%] ${zoom}`}
               />
               <Image
                 src="/what/vishwa-cutout.png"
@@ -41,7 +46,7 @@ export default function WhatYouDo() {
                 width={1105}
                 height={1400}
                 sizes="(min-width: 1024px) 340px, 70vw"
-                className="absolute bottom-0 left-1/2 h-[95%] w-auto max-w-none -translate-x-1/2 object-contain object-bottom"
+                className="absolute bottom-0 left-1/2 h-[95%] w-auto max-w-none -translate-x-1/2 object-contain object-bottom transition-[translate,scale] duration-700 ease-out group-hover:-translate-y-2 group-hover:scale-[1.03]"
               />
             </div>
 
@@ -63,7 +68,7 @@ export default function WhatYouDo() {
                     alt={l.name}
                     width={l.w}
                     height={l.h}
-                    className={`${l.cls} w-auto`}
+                    className={`${l.cls} w-auto transition-[scale] duration-300 hover:scale-110`}
                   />
                 ))}
               </div>
@@ -107,9 +112,9 @@ function Card({
   body: string;
 }) {
   return (
-    <article className="flex flex-col gap-5 rounded-md border border-black/[0.08] bg-[#fafafa] p-3 sm:flex-row">
+    <article className={`flex flex-col gap-5 rounded-md border border-black/[0.08] bg-[#fafafa] p-3 sm:flex-row ${cardHover}`}>
       <div className="relative aspect-[16/10] overflow-hidden rounded-sm sm:aspect-auto sm:w-[36%] sm:flex-none">
-        <Image src={img} alt={alt} fill sizes="(min-width: 640px) 220px, 100vw" className="object-cover" />
+        <Image src={img} alt={alt} fill sizes="(min-width: 640px) 220px, 100vw" className={`object-cover ${zoom}`} />
       </div>
       <div className="flex flex-col justify-center px-3 pb-3 sm:px-1 sm:py-2 sm:pr-4">
         <Num n={n} />

@@ -50,7 +50,7 @@ export default function WhatYouGet() {
           {REWARDS.map((r) => (
             <li
               key={r.title}
-              className={`relative flex flex-col sm:h-[340px] overflow-hidden rounded-sm ${r.bg} ring-4 ring-white outline outline-black/[0.06]`}
+              className={`group relative flex flex-col sm:h-[340px] overflow-hidden rounded-sm ${r.bg} ring-4 ring-white outline outline-black/[0.06]`}
             >
               <div className="p-5 pb-0 text-center">
                 <h3 className="mb-1.5 text-[15.5px] leading-snug font-semibold tracking-[-0.015em] text-balance text-ink">
@@ -58,8 +58,9 @@ export default function WhatYouGet() {
                 </h3>
                 <p className="text-[12.5px] leading-[1.55] text-[#5a5a66]">{r.body}</p>
               </div>
-              {/* Preview panel peeking from the bottom-right */}
-              <div className="mt-6 ml-8 translate-x-2 translate-y-2 sm:mt-auto">
+              {/* Preview panel peeking from the bottom-right; on hover it slides up out of the corner.
+                  The card itself stays still — only the visuals animate. */}
+              <div className="mt-6 ml-8 translate-x-2 translate-y-2 transition-[translate] duration-500 ease-out group-hover:translate-x-0 group-hover:-translate-y-1 sm:mt-auto">
                 <div className="h-[156px] overflow-hidden rounded-tl-md bg-white shadow-[0_-10px_30px_-14px_rgba(10,10,16,.18)] ring-1 ring-black/[0.05]">
                   {r.preview}
                 </div>
@@ -109,7 +110,10 @@ function EnrolmentPreview() {
               <span className="h-[5px] rounded-full bg-black/[0.12]" style={{ width: r.w }} />
               <span className="h-[5px] w-1/3 rounded-full bg-black/[0.06]" />
             </span>
-            <span className="grid size-6 flex-none place-items-center rounded-full bg-brand/10 text-brand">
+            <span
+              className="grid size-6 flex-none place-items-center rounded-full bg-brand/10 text-brand transition-[scale,rotate,background-color] duration-300 ease-out group-hover:scale-115 group-hover:-rotate-12 group-hover:bg-brand/20"
+              style={{ transitionDelay: `${i * 70}ms` }}
+            >
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
                 <path d="M20 12v10H4V12" />
                 <path d="M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" />
@@ -125,7 +129,13 @@ function EnrolmentPreview() {
 function GoodiesPreview() {
   return (
     <div className="relative h-full">
-      <Image src="/get/goodies.jpg" alt="" fill sizes="260px" className="object-cover object-[30%_center]" />
+      <Image
+        src="/get/goodies.jpg"
+        alt=""
+        fill
+        sizes="260px"
+        className="object-cover object-[30%_center] transition-[scale] duration-[900ms] ease-out group-hover:scale-[1.08]"
+      />
     </div>
   );
 }
@@ -142,7 +152,7 @@ function CertificatePreview() {
           <span className="mt-2.5 h-[4px] w-20 rounded-full bg-black/[0.06]" />
         </div>
         {/* seal */}
-        <span className="absolute right-3 bottom-6 grid size-7 place-items-center rounded-full bg-brand ring-2 ring-brand/20 ring-offset-1">
+        <span className="absolute right-3 bottom-6 grid size-7 place-items-center rounded-full bg-brand ring-2 ring-brand/20 ring-offset-1 transition-[scale,rotate] duration-500 ease-out group-hover:scale-115 group-hover:rotate-[24deg]">
           <span className="size-3 rounded-full border border-white/70" />
         </span>
       </div>
@@ -155,12 +165,14 @@ function LetterPreview() {
     <div className="px-4 pt-4">
       <div className="mb-3 flex items-center justify-between gap-2">
         <span className="h-[7px] w-24 rounded-full bg-black/[0.14]" />
-        <span className="h-3 w-9 rounded-full bg-[#def4ea]" />
+        <span className="h-3 w-9 rounded-full bg-[#def4ea] transition-[width,background-color] duration-500 ease-out group-hover:w-12 group-hover:bg-[#c6ebd8]" />
       </div>
       {[100, 94, 98, 70].map((w, i) => (
         <span key={i} className="mb-[5px] block h-[3px] rounded-full bg-black/[0.08]" style={{ width: `${w}%` }} />
       ))}
-      <span className="mt-2 block font-script text-[24px] leading-none text-ink">Vishwa Mohan</span>
+      <span className="mt-2 block font-script text-[24px] leading-none text-ink transition-[translate] duration-700 ease-out group-hover:translate-x-1.5">
+        Vishwa Mohan
+      </span>
     </div>
   );
 }
