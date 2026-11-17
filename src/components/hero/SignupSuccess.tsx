@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import SuccessTick from "./SuccessTick";
 
 // TODO: replace with the real Catalyst Campus Ambassador WhatsApp channel invite link
@@ -38,9 +39,7 @@ export default function SignupSuccess({ firstName }: { firstName: string }) {
           <span className="block text-[14.5px] leading-tight font-semibold">Join on WhatsApp</span>
           <span className="block text-[11.5px] leading-tight text-white/85">Catalyst Campus Ambassador channel</span>
         </span>
-        <span aria-hidden className="text-lg font-semibold transition group-hover:translate-x-0.5">
-          →
-        </span>
+        <ArrowRight size={20} strokeWidth={2.25} aria-hidden className="flex-none transition group-hover:translate-x-0.5" />
         <span className="sr-only">(opens in a new tab)</span>
       </a>
     </div>

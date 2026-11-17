@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ArrowLeft } from "lucide-react";
 import { register } from "@/lib/api";
 import SignupSuccess from "./SignupSuccess";
 import OtpField from "./OtpField";
@@ -167,9 +168,10 @@ export default function SignupForm() {
           <button
             type="button"
             onClick={() => setStep(1)}
-            className="mx-auto mt-3 block text-[12.5px] font-medium text-muted transition hover:text-ink"
+            className="group mx-auto mt-3 flex items-center gap-1 text-[12.5px] font-medium text-muted transition hover:text-ink"
           >
-            ← Back
+            <ArrowLeft size={14} strokeWidth={2.25} aria-hidden className="transition group-hover:-translate-x-0.5" />
+            Back
           </button>
           </div>
         </form>
