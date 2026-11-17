@@ -12,8 +12,9 @@ export function controlClass(state: ControlState = "idle", extra = "") {
   return `relative flex items-center rounded-md border bg-white transition focus-within:ring-[3px] focus-within:ring-black/[0.06] ${tone} ${extra}`;
 }
 
+// rounded to match the control's inner corner, so the white autofill fill doesn't square off the border
 export const inputClass =
-  "min-w-0 flex-1 bg-transparent px-3 py-2.5 text-[14.5px] text-ink outline-none placeholder:text-[#a6a6b2] read-only:text-muted";
+  "min-w-0 flex-1 rounded-[5px] bg-transparent px-3 py-2.5 text-[14.5px] text-ink outline-none placeholder:text-[#a6a6b2] read-only:text-muted";
 
 export function Field({
   label,

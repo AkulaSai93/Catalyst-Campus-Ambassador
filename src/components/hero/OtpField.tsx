@@ -155,10 +155,11 @@ export default function OtpField({
       {stage === "otp" && (
         <div className="mt-2 animate-rise rounded-md border border-black/[0.07] bg-[#fafafa] p-3">
           <div className="mb-2.5 flex items-baseline justify-between gap-3 text-[12.5px] text-muted">
-            <span>
-              Enter the 6-digit code sent to <b className="break-all text-text">{shown}</b>
+            {/* One line on every screen: the number/email never splits; a long email trims with … */}
+            <span className="min-w-0 truncate whitespace-nowrap" title={`Code sent to ${shown}`}>
+              Code sent to <b className="font-semibold text-text">{shown}</b>
             </span>
-            <button type="button" onClick={edit} className="text-[12px] font-medium text-brand">
+            <button type="button" onClick={edit} className="flex-none text-[12px] font-medium text-brand">
               Edit
             </button>
           </div>

@@ -53,6 +53,22 @@ body {
   overflow-x: clip;
 }
 
+/* Browser autofill paints filled fields light blue and ignores background-color; cover it with a white
+   inset shadow (the long transition stops Chrome flashing its colour back) so fields stay white. */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #fff inset !important;
+  box-shadow: 0 0 0 1000px #fff inset !important;
+  -webkit-text-fill-color: var(--color-ink) !important;
+  caret-color: var(--color-ink);
+  transition: background-color 9999s ease-out 0s;
+}
+input:autofill {
+  background-color: #fff !important;
+}
+
 /* Light mode only */
 body {
   background: #fff;
